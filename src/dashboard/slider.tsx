@@ -1,7 +1,4 @@
-// Slider.tsx
-import React, { useState } from "react";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-
+import React from "react";
 import "../css/Slider.css";
 
 interface Slide {
@@ -12,51 +9,31 @@ interface Slide {
 }
 
 const Slider: React.FC = () => {
-    const [currentSlide, setCurrentSlide] = useState<number>(0);
-
     const slides: Slide[] = [
         {
-            backgroundImage: "url('src/images/SliderImage12.jpg')",
-        },
-        {
-            backgroundImage: "url('src/images/SliderImage2.webp')",
-        },
-        {
-            backgroundImage: "url('src/images/SliderImage4.jpg')",
+            backgroundImage: "url('src/image/slider.jpg')",
+            heading: "Your Heading",
+            paragraph: "Your Paragraph",
         },
     ];
-
-    const nextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
-    };
 
     return (
         <div
             className="slider-container"
             style={{
-                backgroundImage: slides[currentSlide].backgroundImage,
+                backgroundImage: slides[0].backgroundImage,
             }}
         >
             <div className="content-container">
                 {/* left side */}
                 <div className="left-side">
-                    <div className="image-container">{slides[currentSlide].content}</div>
+                    <div className="image-container">{slides[0].content}</div>
                 </div>
                 {/* right side */}
                 <div className="right-side">
-                    <h2 className="heading">{slides[currentSlide].heading}</h2>
-                    <p className="paragraph">{slides[currentSlide].paragraph}</p>
+                    <h2 className="heading">{slides[0].heading}</h2>
+                    <p className="paragraph">{slides[0].paragraph}</p>
                 </div>
-            </div>
-
-
-            <div className="slider-navigation">
-                <IoIosArrowBack onClick={prevSlide} className="slider-arrow left-arrow" />
-                <IoIosArrowForward onClick={nextSlide} className="slider-arrow right-arrow" />
             </div>
         </div>
     );
