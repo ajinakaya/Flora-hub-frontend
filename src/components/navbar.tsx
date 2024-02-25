@@ -3,14 +3,12 @@ import { NavLink } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuUser } from "react-icons/lu";
 import { BiCartAdd } from "react-icons/bi";
-
 import "../css/navbar.css";
 
 const Navbar  = () => {
     return (
-        <header className="main-nav">
-            <div className="container flex">
-                <div className="logo flex">
+        <header className="container">
+                <div className="logo">
                     <h1>
                         <NavLink to="/">
                             FloraHub
@@ -19,9 +17,9 @@ const Navbar  = () => {
                 </div>
 
                 <div className="navlist">
-                    <a href="/">Indoorplant </a>
-                    <a href="/"> Outdoorplant </a>
-                    <a href="/">About Us </a>
+                    <a href="/">Indoorplant</a>
+                    <a href="/"> Outdoorplant</a>
+                    <a href="/">About Us</a>
                     <a href="/">Contact Us </a>
 
                 </div>
@@ -34,7 +32,7 @@ const Navbar  = () => {
                 </div>
 
                 <div className="nav-links ">
-                    <NavLink to="/account" className="nav-link">
+                    <NavLink to="/login" className="nav-link">
                         <LuUser />
                     </NavLink>
 
@@ -44,7 +42,7 @@ const Navbar  = () => {
 
 
                 </div>
-            </div>
+
         </header>
     );
 };

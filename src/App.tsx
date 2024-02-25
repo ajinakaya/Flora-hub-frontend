@@ -1,8 +1,9 @@
 
-import './App.css'
+import './css/App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-//import Navbar from './components/navbar.tsx';
 import Home from "./dashboard/Home.tsx";
+import Login from "./components/Login.tsx";
+import Register from "./components/Register.tsx";
 
 
 const router=createBrowserRouter(
@@ -10,8 +11,16 @@ const router=createBrowserRouter(
         {
             path:"/",
             element:<Home />
-
         },
+        {
+            path:"/login",
+            element: <Login/>
+        },
+        {
+            path:"/register",
+            element: <Register/>
+        },
+
 
 
     ]
