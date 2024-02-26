@@ -5,21 +5,32 @@ import {useMutation} from "react-query";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
-const Register =()=>{
-    const navigate= useNavigate();
-    const loginUser = useMutation({
-        mutationKey: "LOGINUSER",
-        mutationFn: (loginData: any) => {
-            return axios.post("http://localhost:8080/authenticate", loginData, {
-                onSuccess:navigate('/')
-            });
+const Register = () => {
+    const navigate = useNavigate();
+    const saveData = useMutation({
+        mutationKey: "SAVEDATA",
+        mutationFn: (requestData: any) => {
+            return axios.post("http://localhost:8080/user/save", requestData, {});
+        },
+        onSuccess: () => {
+            toast.success("Registration successful! ");
+            navigate("/login");
+        },
+        onError: () => {
+            toast.error("Registration failed. Please try again.");
         },
     });
+
+
     const handleregister = (values: any) => {
+        console.log("Register button clicked");
         console.log(values);
-        loginUser.mutate(values);
-    };;
+        saveData.mutate(values)
+        navigate("/login")
+    };
+
     const {register,
         handleSubmit,
         formState,

@@ -1,32 +1,37 @@
-
 import '../css/login.css';
 import Navbar from "../components/navbar.tsx";
-import {useNavigate} from "react-router-dom";
-import {useMutation} from "react-query";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
 import axios from "axios";
-import {useForm} from "react-hook-form";
-const Login =()=>{
-    const navigate= useNavigate();
-    const loginUser = useMutation({
-        mutationKey: "LOGINUSER",
-        mutationFn: (loginData: any) => {
-            return axios.post("http://localhost:8080/authenticate", loginData, {
-                onSuccess:navigate('/')
-            });
-        },
-    });
-    const handleLogin =  (values:any) => {
+import { useForm } from "react-hook-form";
+
+const Login = () => {
+    const navigate = useNavigate();
+
+    const loginUser = useMutation(
+        (loginData: any) => axios.post("http://localhost:8080/authenticate", loginData),
+        {
+            onSuccess: () => {
+                navigate('/');
+            },
+        }
+    );
+
+    const handleLogin = (values: any) => {
         console.log(values);
-        loginUser.mutate(values)
+        loginUser.mutate(values);
     };
-    const {register,
+
+    const {
+        register,
         handleSubmit,
         formState,
         reset
     } = useForm();
+
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <div className="main-loginContainer">
                 <div className="left-wrapperLogin"></div>
                 <div className="wrapper">
@@ -65,7 +70,7 @@ const Login =()=>{
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
+
 export default Login;
- 
