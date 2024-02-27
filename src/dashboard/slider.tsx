@@ -25,15 +25,13 @@ const Slider: React.FC = () => {
             }}
         >
             <div className="content-container">
-                {/* left side */}
-                <div className="left-side">
+
+
                     <div className="image-container">{slides[0].content}</div>
-                </div>
-                {/* right side */}
-                <div className="right-side">
+
                     <h2 className="heading">{slides[0].heading}</h2>
                     <p className="paragraph">{slides[0].paragraph}</p>
-                </div>
+
             </div>
         </div>
     );

@@ -1,11 +1,13 @@
 
 import '../css/Register.css'
-import Navbar from "../components/navbar.tsx";
+
 import {useMutation} from "react-query";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -38,7 +40,7 @@ const Register = () => {
     } = useForm();
     return (
         <>
-            <Navbar/>
+
             <div className="main-registerContainer">
                 <div className="leftwrapperregister"></div>
                 <div className="wrapper1">
@@ -80,6 +82,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+
         </>
     )
 }

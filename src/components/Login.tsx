@@ -1,9 +1,11 @@
 import '../css/login.css';
-import Navbar from "../components/navbar.tsx";
+
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -12,8 +14,12 @@ const Login = () => {
         (loginData: any) => axios.post("http://localhost:8080/authenticate", loginData),
         {
             onSuccess: () => {
+                toast.success("Login successful!");
                 navigate('/');
             },
+            onError: () => {
+                toast.error("Login failed. Please check your credentials and try again.");
+            }
         }
     );
 
@@ -31,7 +37,7 @@ const Login = () => {
 
     return (
         <>
-            <Navbar />
+
             <div className="main-loginContainer">
                 <div className="left-wrapperLogin"></div>
                 <div className="wrapper">
