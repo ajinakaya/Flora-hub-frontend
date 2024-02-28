@@ -1,35 +1,35 @@
-.plantcontents {
+.Admincontents {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.plantView-content {
+.AdminView-content {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 50%;
     overflow-y: auto;
     background: white;
-    margin-left: 17px;
+    margin-left: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.plant-name{
-    margin-top:7% ;
-    font-size: 2.9em;
+.Admin-name{
+    margin-top:2% ;
+    font-size: 2.6em;
     color:black;
     font-family: 'Arial';
     font-weight: bolder;
 
 }
 
-.plantrow {
+.Adminrow {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.plant-rows {
+.Admin-rows {
     text-decoration: none;
     color: inherit;
     width: 25%;
@@ -42,25 +42,25 @@
     margin-top: 20px;
 }
 
-.plant-rows:hover {
+.Admin-rows:hover {
     transform: scale(1.05);
 }
 
 
-.plantcategory:hover {
+.Admincategory:hover {
     transform: scale(1.05);
 }
 
-.plant-img img{
+.Admin-img img{
     max-width: 199px;
     margin-right: 20px;
 }
 
-.plant-img {
+.Admin-img {
     max-width: 20%;
 }
 
-.plant-text {
+.Admin-text {
     flex: auto;
     margin-left: 210px;
     margin-top: -210px;
@@ -69,17 +69,16 @@
 
 }
 
-.plant-text h4 {
-    margin-bottom: 5px;
+.Admin-text h4 {
+    margin-bottom: 6px;
     font-size: 1.6em;
     white-space: normal;
-    margin-top: 100%;
-    white-space: nowrap;
+    margin-top: 10%;
     font-style: italic;
 }
 
 
-.plant-text p {
+.Admin-text p {
     font-style: italic;
     color: #7b7b8b;
     margin-bottom: 4px;
@@ -87,30 +86,17 @@
     white-space: nowrap;
 
 }
-
-
-a {
+.Admin-buttons {
     display: flex;
-    text-decoration: double;
+    gap: 10px;
+    margin-top: 25px;
 
 }
 
-.addtocart {
-    background-color: cadetblue;
-    height: 40px;
-    border-radius: 50px;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 122px;
-    height: 40px;
-    border-radius:50px;
-    margin-top: 50px;
+.Admin-buttons button {
+    padding: 5px 10px;
 }
 
-.add-to-cart-button:hover {
-    background-color: darkolivegreen;
-}
+
+
 

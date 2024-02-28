@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import "../css/indoor.css";
+import Navbar from "./navbar.tsx";
 
 const InOutplant = () => {
     const [plant, setPlant] = useState<any[]>([]);
     const { category } = useParams<{ category: string }>();
+    const [cartItems, setCartItems] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -13,7 +15,7 @@ const InOutplant = () => {
                 const response = await axios.get(`http://localhost:8080/plant/category/${category}`);
                 console.log('API Response:', response.data);
 
-                // Check if response.data is an array with at least one element
+
                 if (Array.isArray(response.data) && response.data.length > 0) {
                     setPlant(response.data);
                 } else {
@@ -28,28 +30,38 @@ const InOutplant = () => {
         fetchData();
     }, [category]);
 
+    const handleAddToCart = (plantItem: any) => {
+        setCartItems((prevCartItems) => [...prevCartItems, plantItem]);
+        console.log(`Added plant with ID ${plantItem.id} to the cart.`);
+    };
 
 
     return (
+
         <>
+            <Navbar />
             <div className="plantcontents"></div>
             <div className="plantView-content">
                 <h2 className="plant-name">
                     {category}
                 </h2>
 
-                <div className="plant-row">
+                <div className="plantrow">
                     {plant && plant.length > 0 ? (
                         plant.map((plantItem) => (
-                            <Link to={`/booklisting/${plantItem._id}`} key={plantItem._id} className="plant-items">
+                            <Link to={`/planting/${plantItem.id}`} key={plantItem.id} className="plant-rows">
                                 <div className="plant-item-content">
                                     <div className="plantcategory">
                                         <div className="plant-img">
                                             <img src={plantItem.imageurl} alt={`Cover of ${plantItem.plantname}`} />
                                             <div>
                                                 <div className="plant-text">
-                                                    <h4>{plantItem.plantname}</h4>
-                                                    <p>{'Rs. ' + plantItem.price}</p>
+                                                    <h4 className="plantname">{plantItem.plantname}</h4>
+                                                    <p className="plantprice">{'Rs. ' + plantItem.price}</p>
+                                                    <button
+                                                        onClick={() => handleAddToCart(plantItem)} className="addtocart">
+                                                        Add to Cart
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

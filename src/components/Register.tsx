@@ -7,6 +7,7 @@ import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "./navbar.tsx";
 
 
 const Register = () => {
@@ -40,7 +41,7 @@ const Register = () => {
     } = useForm();
     return (
         <>
-
+            <Navbar />
             <div className="main-registerContainer">
                 <div className="leftwrapperregister"></div>
                 <div className="wrapper1">

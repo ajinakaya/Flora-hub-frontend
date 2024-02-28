@@ -23,7 +23,7 @@ const Navbar = () => {
                 <NavLink to="/category/Outdoor" className="active-link">
                     Outdoorplant
                 </NavLink>
-                <NavLink to="/about" className="active-link">
+                <NavLink to="/AboutUs" className="active-link">
                     About Us
                 </NavLink>
                 <NavLink to="/contact" className="active-link">

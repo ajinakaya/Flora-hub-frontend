@@ -1,15 +1,16 @@
 .plantcards-headline{
     margin-bottom: 10px;
-    font-style: italic;
     margin-top: 25px;
     font-family: Nib,serif;
     font-size: 35px;
-    color: darkolivegreen;
+    color: #333333;
 }
 .plantitem-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    display: flex;
+    text-decoration: double;
 }
 
 .plant-item {
@@ -86,26 +87,25 @@
 .see-more-button:hover {
     background-color: #0f4278;
 }
-
-.book-actions{
-    flex: auto;
-    margin-top: -75px;
-    margin-left: 170px;
-
-}
-.add-to-cart-btn {
-    background-color: orange;
-    font-size: 13px;
+.add-to-cart-button {
+    background-color:cadetblue;
+    height: 40px;
+    border-radius: 50px;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     width: 122px;
     height: 40px;
     border-radius: 50px;
-    border: none;
+    margin-top: 20%;
+
 }
 
-.add-to-cart-btn:hover {
-    background-color: #7b7b8b;
+.add-to-cart-button:hover {
+    background-color: #45a049;
 }
-
 
 
 

@@ -12,8 +12,7 @@ const Slider: React.FC = () => {
     const slides: Slide[] = [
         {
             backgroundImage: "url('src/image/slider.jpg')",
-            heading: "Gardening is a way to a healthy life",
-            paragraph: "Your Paragraph",
+            // heading: "Gardening is a way to a healthy life",
         },
     ];
 

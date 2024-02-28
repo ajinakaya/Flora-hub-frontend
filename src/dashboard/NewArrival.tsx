@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
-import Plantcard from "../components/plantcard.tsx";
+import Plantcard from "../components/Plantcard.tsx";
 
 const NewArrivals = () => {
     const [plant, setNewArrivals] = useState<any>(null);

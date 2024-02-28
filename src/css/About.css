@@ -1,0 +1,41 @@
+
+
+.main-aboutUs-div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.aboutUs-main {
+    margin-bottom: 20px;
+}
+
+.aboutUs-first-heading {
+    color: darkolivegreen;
+    margin-top: 10%;
+    font-size: 30px;
+
+}
+
+.main-ourServices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 150px;
+}
+
+.service-icon {
+    font-size: 24px;
+    margin-right: 100px;
+    color: black;
+    font-size: 150px;
+}
+
+h5 {
+    color: darkolivegreen;
+    font-size: 100%;
+    margin-right: 15px;
+}
+
+
