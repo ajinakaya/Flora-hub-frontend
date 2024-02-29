@@ -2,10 +2,13 @@
 import { NavLink } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuUser } from "react-icons/lu";
-import { BiCartAdd } from "react-icons/bi";
+import { IoCartOutline } from "react-icons/io5";
 import "../css/navbar.css";
+import { useCart } from './CartContext.tsx';
 
 const Navbar = () => {
+    const { cartItems } = useCart();
+    const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
     return (
         <header className="container">
             <div className="logo">
@@ -44,7 +47,8 @@ const Navbar = () => {
                 </NavLink>
 
                 <NavLink to="/cart" className="nav-link">
-                    <BiCartAdd />
+                    <IoCartOutline />
+                    {cartQuantity > 0 && <span className="cart-quantity">{cartQuantity}</span>}
                 </NavLink>
             </div>
         </header>

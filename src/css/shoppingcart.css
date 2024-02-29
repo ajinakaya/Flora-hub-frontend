@@ -1,0 +1,153 @@
+.Shoppingcontainer{
+    font-style: oblique;
+    margin-top: 40px;
+    width: 1470Px;
+    margin-top: 100px;
+
+}
+
+.shopping-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    border-top: 1px solid#ddd;
+}
+
+.cart-item {
+
+    width: 100%;
+    height:200px;
+    margin-bottom: 40px;
+    padding: 10px;
+
+}
+
+.total-section {
+    margin-top: 20px;
+    border-top: 1px solid#ddd;
+    padding-top: 10px;
+    font-size: 1.0em;
+
+
+}
+
+.shoppingplant-image{
+    max-width: 25%;
+}
+.shoppingplantimage__img{
+    width: 70%;
+    margin-top: 2px;
+    margin-right: 20px;
+
+}
+.shoppingbook-info{
+    flex: auto;
+    margin-left: 290px;
+}
+.shoppingbook-title{
+    font-size: 1.1em;
+    margin-top: -150px;
+    color: black;
+}
+.shoppingbook-price{
+    font-style: italic;
+    color: black;
+    margin-bottom: 4px;
+    font-size: 1.0em;
+
+}
+.QuantityPrice {
+    margin-top: 1px;
+    width:25%;
+    border-radius: 11px;
+    border: 1px solid #ddd;
+    margin-left: 25%;
+    margin-top:-4%;
+
+}
+
+.Quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 20px;
+    height: 45px;
+}
+.QuantityText {
+    margin-top: 35px;
+    font-size: 16px;
+}
+
+.Addsub {
+    font-size: 10px;
+    display: flex;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon{
+    margin-left: 53%;
+    margin-top:-19%;
+}
+
+.shoppingtotal{
+    margin-left: 85%;
+    margin-top:-2%;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: darkgray;
+
+}
+
+
+.checkout-button{
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 9px 1px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.7s;
+    width: 120px;
+    height: 45px;
+    margin-left: 85%;
+}
+
+.estimatedtotal{
+    margin-left: 85%;
+    font-weight: bold;
+}
+
+.totalshoppingq{
+    margin-left: 85%;
+}
+.deleteiconcart{
+    margin-top: -40px;
+    margin-left: 100%;
+
+}
+
+.total{
+    margin-top: 29px;
+    margin-right: 100px;
+
+}
+.productname{
+    margin-top: 29px;
+    margin-left: 27px;
+}
+.title{
+    margin-left: 650px;
+    font-size: 35px;
+
+}

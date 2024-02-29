@@ -87,6 +87,11 @@
 .see-more-button:hover {
     background-color: #0f4278;
 }
+.plant-actions{
+    flex: auto;
+    margin-top: -80px;
+
+}
 .add-to-cart-button {
     background-color:cadetblue;
     height: 40px;
@@ -99,7 +104,8 @@
     width: 122px;
     height: 40px;
     border-radius: 50px;
-    margin-top: 20%;
+
+    margin-left: 220px;
 
 }
 

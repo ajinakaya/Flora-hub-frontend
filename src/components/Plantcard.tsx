@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/plantcard.css';
-import { IoArrowBackOutline } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import { useCart } from './CartContext.tsx';
 
+import '../css/plantcard.css';
 
 const Plantcard = ({ plant, headline }: { plant: any[] | null; headline: string }) => {
     const [visibleplant, setVisibleplant] = useState(3);
     const [seeMoreClicked, setSeeMoreClicked] = useState(false);
-    const [cartItems, setCartItems] = useState<any[]>([]);
-    const navigate = useNavigate();
-
+    const { addToCart } = useCart();
 
     const handleSeeMore = () => {
         setVisibleplant((prevVisibleplant) => prevVisibleplant + 3);
@@ -28,12 +26,11 @@ const Plantcard = ({ plant, headline }: { plant: any[] | null; headline: string 
             imageurl: plantItem.imageurl,
             plantname: plantItem.plantname,
             price: plantItem.price,
+            quantity: 1,
         };
 
-        setCartItems((prevCartItems) => [...prevCartItems, cartItem]);
-        console.log(`Added plant with ID ${plantItem.id} to the cart.`);
+        addToCart(cartItem);
 
-        navigate('/shopping-cart');
     };
 
     return (
@@ -56,19 +53,23 @@ const Plantcard = ({ plant, headline }: { plant: any[] | null; headline: string 
                             <div key={plantItem.id} className="plant-item">
                                 <Link to={`/planting/${plantItem.id}`} className="link">
                                     <div className="plant-image">
-                                        <img src={plantItem.imageurl} alt=" " className="plant-image__img" />
+                                        <img src={plantItem.imageurl} alt="" className="plant-image__img" />
                                     </div>
                                     <div className="plant-info">
                                         <h2 className="plant-title">{plantItem.plantname}</h2>
-                                        <p className="plant-category">Category:{plantItem.category}</p>
-                                        <p className="plant-price">Rs: {plantItem.price}</p>
-                                        <button
-                                            onClick={() => handleAddToCart(plantItem)} className="add-to-cart-button">
-                                            Add to Cart
-                                        </button>
+                                        <p className="plant-category">{plantItem.category}</p>
+                                        <p className="plant-price">Rs:{plantItem.price}</p>
 
                                     </div>
                                 </Link>
+                                <div className="plant-actions">
+                                <button
+                                    onClick={() => handleAddToCart(plantItem)}
+                                    className="add-to-cart-button"
+                                >
+                                    Add to Cart
+                                </button>
+                                </div>
                             </div>
                         ))}
                     </>

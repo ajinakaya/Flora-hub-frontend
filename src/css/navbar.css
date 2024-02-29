@@ -62,7 +62,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
+    margin-left: 35px;
 
 }
 
@@ -86,5 +86,11 @@ header {
     text-decoration: none;
     margin: 0 30px;
 
+}
+
+.cart-quantity{
+    font-size: 15px;
+    margin-top: -8px;
+    color: brown;
 }
 

@@ -14,6 +14,7 @@ import Admin from "./Admin/Admin.tsx";
 import Product from "./Admin/Product.tsx";
 import AdminUpload from "./Admin/Admin upload.tsx";
 import UpdatePlant from "./Admin/update.tsx";
+import ShoppingCart from "./components/shoppingcart.tsx";
 
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ function App() {
                     <Route path="/planting" element={<Product/>} />
                     <Route path="/upload-plant" element={<AdminUpload/>} />
                     <Route path="/update/:id" element={<UpdatePlant/>} />
+                    <Route path="/cart" element={<ShoppingCart/>} />
                 </Routes>
             </Router>
             <ToastContainer position='top-left' autoClose={700} />
