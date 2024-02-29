@@ -4,12 +4,22 @@ import { MdDeleteOutline } from 'react-icons/md';
 import { useCart } from './CartContext.tsx';
 import '../css/shoppingcart.css';
 import Navbar from "./navbar.tsx";
-import {useNavigate} from "react-router-dom";
+
+import DeliveryDetailsPopup from './checkout.tsx';
+
 const ShoppingCart = () => {
     const { cartItems, removeFromCart, incrementItem, decrementItem, calculateTotal } = useCart();
     const [totalPrice, setTotalPrice] = useState<number>(0);
-    const navigate = useNavigate();
+    const [showPopup, setShowPopup] = useState<boolean>(false);
 
+    const [checkoutDetails, setCheckoutDetails] = useState({
+        address: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        totalAmount: '0',
+        plants: [] as string[],
+    });
     useEffect(() => {
         setTotalPrice(calculateTotal());
     }, [cartItems, calculateTotal]);
@@ -25,9 +35,24 @@ const ShoppingCart = () => {
     const handleDecrement = (itemId: number) => {
         decrementItem(itemId);
     };
-    const handleCheckout = () => {
 
-        navigate('/checkout');
+    const handleCheckout = () => {
+        setCheckoutDetails({
+            address: '',
+            username: '',
+            email: '',
+            phoneNumber: '',
+            totalAmount: totalPrice.toString(),
+            plants: cartItems.map((item) => item.plantname),
+        });
+
+
+        setShowPopup(true);
+    };
+
+    const closePopup = () => {
+
+        setShowPopup(false);
     };
 
     return (
@@ -83,6 +108,7 @@ const ShoppingCart = () => {
                     </button>
                 </div>
             </div>
+            {showPopup && <DeliveryDetailsPopup details={checkoutDetails} onClose={closePopup} />}
         </>
     );
 };

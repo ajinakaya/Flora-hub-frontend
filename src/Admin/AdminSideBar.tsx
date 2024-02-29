@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import {  BsGrid1X2Fill, BsFillArchiveFill,  BsFillGearFill } from 'react-icons/bs';
-import { IoCloudUploadOutline } from 'react-icons/io5';
+
 import { PiPlant } from "react-icons/pi";
 import "../css/App.css";
 
@@ -28,25 +27,25 @@ const AdminSideBar: FC<AdminSideBarProps> = ({ openSidebarToggle, OpenSidebar })
             <ul className='sidebar-list'>
                 <li className='sidebar-list-item'>
                     <NavLink to="/admin" className="nav-link_admin" >
-                        <BsGrid1X2Fill className='icon' /> Dashboard
+                        Dashboard
                     </NavLink>
                 </li>
 
                 <li className='sidebar-list-item'>
                     <NavLink to="/upload-plant" className="nav-link_admin" >
-                        <IoCloudUploadOutline className='icon' /> Upload
+                       Upload
                     </NavLink>
                 </li>
 
                 <li className='sidebar-list-item'>
                     <NavLink to="/planting" className="nav-link_admin" >
-                        <BsFillArchiveFill className='icon' /> Products
+                        Products
                     </NavLink>
                 </li>
 
                 <li className='sidebar-list-item'>
                     <NavLink to="/" className="nav-link_admin">
-                        <BsFillGearFill className='icon' /> Logout
+                        Logout
                     </NavLink>
                 </li>
             </ul>

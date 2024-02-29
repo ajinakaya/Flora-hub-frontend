@@ -3,18 +3,18 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import "../css/indoor.css";
 import Navbar from "./navbar.tsx";
+import { useCart } from './CartContext.tsx';
 
 const InOutplant = () => {
     const [plant, setPlant] = useState<any[]>([]);
     const { category } = useParams<{ category: string }>();
-    const [cartItems, setCartItems] = useState<any[]>([]);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8080/plant/category/${category}`);
                 console.log('API Response:', response.data);
-
 
                 if (Array.isArray(response.data) && response.data.length > 0) {
                     setPlant(response.data);
@@ -26,18 +26,22 @@ const InOutplant = () => {
             }
         };
 
-
         fetchData();
     }, [category]);
 
     const handleAddToCart = (plantItem: any) => {
-        setCartItems((prevCartItems) => [...prevCartItems, plantItem]);
-        console.log(`Added plant with ID ${plantItem.id} to the cart.`);
+        const cartItem = {
+            id: plantItem.id,
+            imageurl: plantItem.imageurl,
+            plantname: plantItem.plantname,
+            price: plantItem.price,
+            quantity: 1,
+        };
+
+        addToCart(cartItem);
     };
 
-
     return (
-
         <>
             <Navbar />
             <div className="plantcontents"></div>
@@ -49,8 +53,8 @@ const InOutplant = () => {
                 <div className="plantrow">
                     {plant && plant.length > 0 ? (
                         plant.map((plantItem) => (
-                            <Link to={`/planting/${plantItem.id}`} key={plantItem.id} className="plant-rows">
-                                <div className="plant-item-content">
+                            <div key={plantItem.id} className="plant-rows">
+                                <Link to={`/planting/${plantItem.id}`} className="plant-item-content">
                                     <div className="plantcategory">
                                         <div className="plant-img">
                                             <img src={plantItem.imageurl} alt={`Cover of ${plantItem.plantname}`} />
@@ -58,16 +62,20 @@ const InOutplant = () => {
                                                 <div className="plant-text">
                                                     <h4 className="plantname">{plantItem.plantname}</h4>
                                                     <p className="plantprice">{'Rs. ' + plantItem.price}</p>
-                                                    <button
-                                                        onClick={() => handleAddToCart(plantItem)} className="addtocart">
-                                                        Add to Cart
-                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </Link>
+                                <div className="plant-actions">
+                                    <button
+                                        onClick={() => handleAddToCart(plantItem)}
+                                        className="addtocart"
+                                    >
+                                        Add to Cart
+                                    </button>
                                 </div>
-                            </Link>
+                            </div>
                         ))
                     ) : (
                         <p>No plants available.</p>

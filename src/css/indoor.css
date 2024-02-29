@@ -66,7 +66,6 @@
     margin-top: -210px;
     justify-content: center;
 
-
 }
 
 .plant-text h4 {
@@ -107,10 +106,13 @@ a {
     width: 122px;
     height: 40px;
     border-radius:50px;
-    margin-top: 50px;
+    margin-top: 140px;
+    margin-left: 60%;
 }
 
 .add-to-cart-button:hover {
     background-color: darkolivegreen;
 }
-
+.plantname{
+    color: black;
+}

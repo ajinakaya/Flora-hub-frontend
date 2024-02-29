@@ -1,5 +1,5 @@
 import AdminSideBar from "./AdminSideBar.tsx";
-// import AdminSales from "./AdminSales";
+import Sales from "./sales.tsx";
 import { useState } from 'react';
 
 const App: React.FC = () => {
@@ -12,7 +12,7 @@ const App: React.FC = () => {
     return (
         <div className="grid-container">
             <AdminSideBar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
-            {/*<AdminSales />*/}
+            <Sales/>
         </div>
     );
 };

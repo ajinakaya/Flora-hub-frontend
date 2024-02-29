@@ -5,6 +5,8 @@ import { CartProvider } from './components/CartContext.tsx';
 
 
 
+
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <CartProvider>
   <React.StrictMode>
